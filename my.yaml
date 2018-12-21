@@ -1,0 +1,12 @@
+kafka:
+  services: 123.123.123.1:9092, 123.123.123.2:9092, 123.123.123.3:9092
+  groupid: union_client2
+  topic: kk_hz
+consul:
+  ttl: 30
+  lock_name: union-kafka-cs-lm
+union:
+  host: kong01.service.consul
+  port: 8000
+  path: /union-upload-v2
+  apikey: key
