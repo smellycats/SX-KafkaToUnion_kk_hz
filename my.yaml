@@ -10,3 +10,6 @@ union:
   port: 8000
   path: /union-upload-v2
   apikey: key
+sys:
+  workers: 4
+  weight: 4
