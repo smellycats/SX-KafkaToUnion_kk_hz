@@ -7,7 +7,7 @@ import requests
 class UnionUpload(object):
 
     def __init__(self, **kwargs):
-        self.base_path = 'http://{0}:{1}{2}'.format(
+        self.base_path = 'http://{0}:{1}{2}/'.format(
             kwargs['host'], kwargs['port'], kwargs['path'])
         self.headers = {
             'content-type': 'application/json',
@@ -41,6 +41,15 @@ class UnionUpload(object):
                 self.status = False
                 raise Exception('url: {url}, status: {code}, {text}'.format(
                     url=url, code=r.status_code, text=r.text))
+        except Exception as e:
+            self.status = False
+            raise
+
+    def post_data(self, data):
+        url = '{0}'.format(self.base_path)
+        try:
+            r = requests.post(url, headers=self.headers, data=json.dumps(data))
+            return r
         except Exception as e:
             self.status = False
             raise
