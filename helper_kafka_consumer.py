@@ -15,7 +15,7 @@ class KafkaConsumer(object):
             'socket.timeout.ms': '15000',
             'session.timeout.ms': 10000,
             'default.topic.config': {'auto.offset.reset': 'smallest'},
-            'enable.auto.commit': "false"
+            'enable.auto.commit': 'false'
         })
         #self.c.subscribe([kwargs['topic']])
         self.topic = kwargs['topic']
